@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkjinwon_docs=self.webpackChunkjinwon_docs||[]).push([[5453],{2673:o=>{o.exports=JSON.parse('{"metadata":{"permalink":"/jinwon_docs/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
