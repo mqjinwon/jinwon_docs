@@ -18,7 +18,6 @@ jobs:
       - name: Install dependencies and build
         run: |
           npm install
-          npx docusaurus start
 
       - name: Deploy
         env:
