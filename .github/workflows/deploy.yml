@@ -1,30 +1,30 @@
 name: Deploy to GitHub Pages
 on:
-  push:
-    branches:
-      - main
+    push:
+        branches:
+            - main
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 'lts/*'
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "lts/*"
 
-      - name: Install dependencies and build
-        run: |
-          npm install
+            - name: Install dependencies and build
+              run: |
+                  npm install
 
-      - name: Configure Git
-        run: |
-          git config --global user.email "mqjinwon@gmail.com"
-          git config --global user.name "mqjinwon"
+            - name: Configure Git
+              run: |
+                  git config --global user.email "mqjinwon@gmail.com"
+                  git config --global user.name "mqjinwon"
 
-      - name: Deploy
-        env:
-          GIT_USER: ${{ secrets.GITHUB_TOKEN }}
-        run: npm run deploy
+            - name: Deploy
+              env:
+                  GIT_USER: ${{ secrets.GH_TOKEN }}
+              run: npm run deploy
