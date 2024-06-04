@@ -15,17 +15,17 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Install curl and nvm
-        run: sudo apt-get install curl && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
-      
-      - name: Source nvm
+      - name: Install nvm
         run: |
+          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
           export NVM_DIR="$HOME/.nvm"
-          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-          [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-      
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+          [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
       - name: Install Node.js
-        run: nvm install --lts
+        run: |
+          nvm install --lts
+          nvm use --lts
 
       - name: Install dependencies
         run: npm install
