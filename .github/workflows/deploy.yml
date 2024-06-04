@@ -15,15 +15,16 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Install nvm
+      - name: Setup nvm
         run: |
           curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
-          export NVM_DIR="$HOME/.nvm"
-          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-          [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+          echo 'export NVM_DIR="$HOME/.nvm"' >> $HOME/.bashrc
+          echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> $HOME/.bashrc
+          echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' >> $HOME/.bashrc
 
       - name: Install Node.js
         run: |
+          source $HOME/.bashrc
           nvm install --lts
           nvm use --lts
 
