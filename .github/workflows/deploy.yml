@@ -19,6 +19,11 @@ jobs:
         run: |
           npm install
 
+      - name: Configure Git
+        run: |
+          git config --global user.email "mqjinwon@gmail.com"
+          git config --global user.name "mqjinwon"
+
       - name: Deploy
         env:
           GIT_USER: ${{ secrets.GITHUB_TOKEN }}
